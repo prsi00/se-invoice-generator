@@ -24,7 +24,7 @@ export interface Firm {
     address: string;
     gstin?: string;
     bankDetails?: string;
-    upiId?: string;
+    payeeId?: string;
     defaultTemplate?: 'standard' | 'minimal' | 'creative' | 'elegant' | 'bold';
     termsAndConditions?: string;
     signatoryName?: string;

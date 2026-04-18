@@ -89,8 +89,8 @@ export function FirmTab() {
                                 <Input value={currentFirm.bankDetails || ''} onChange={e => setCurrentFirm({ ...currentFirm, bankDetails: e.target.value })} />
                             </div>
                             <div className="space-y-2">
-                                <Label>UPI ID</Label>
-                                <Input value={currentFirm.upiId || ''} onChange={e => setCurrentFirm({ ...currentFirm, upiId: e.target.value })} />
+                                <Label>Payee ID (UPI, PayPal, etc.)</Label>
+                                <Input value={currentFirm.payeeId || ''} onChange={e => setCurrentFirm({ ...currentFirm, payeeId: e.target.value })} />
                             </div>
                         </div>
                         <div className="flex justify-end gap-2 mt-4">

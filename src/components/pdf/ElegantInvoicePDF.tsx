@@ -102,10 +102,10 @@ export function ElegantInvoicePDF({ invoice, firm }: { invoice: Invoice, firm?: 
                 <View style={{ marginTop: 40 }}>
                     <Text style={styles.label}>PAYMENT DETAILS:</Text>
                     {firm.bankDetails ? <Text style={styles.value}>{firm.bankDetails}</Text> : null}
-                    {firm.upiId ? <Text style={styles.value}>UPI: {firm.upiId}</Text> : null}
+                    {firm.payeeId ? <Text style={styles.value}>Payee: {firm.payeeId}</Text> : null}
                 </View>
 
-                <Text style={styles.footer}>Thank you for your business.</Text>
+                <Text style={styles.footer}>Thank You</Text>
             </Page>
         </Document>
     )

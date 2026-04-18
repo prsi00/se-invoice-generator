@@ -73,7 +73,7 @@ export function MinimalInvoicePDF({ invoice, firm }: { invoice: Invoice, firm?: 
                     <View style={styles.col}>
                         <Text style={styles.label}>Payment Details</Text>
                         {firm.bankDetails ? <Text style={styles.valNorm}>{firm.bankDetails}</Text> : null}
-                        {firm.upiId && <Text style={styles.valNorm}>UPI: {firm.upiId}</Text>}
+                        {firm.payeeId && <Text style={styles.valNorm}>Payee: {firm.payeeId}</Text>}
                     </View>
                     <View style={styles.col}></View>
                 </View>
@@ -113,7 +113,7 @@ export function MinimalInvoicePDF({ invoice, firm }: { invoice: Invoice, firm?: 
                     </View>
                 </View>
 
-                <Text style={styles.footer}>Thank you for your business. Generated via InvoiceGen.</Text>
+                <Text style={styles.footer}>Thank You</Text>
             </Page>
         </Document>
     )

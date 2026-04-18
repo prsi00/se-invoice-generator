@@ -11,7 +11,8 @@ import { MinimalInvoicePDF } from '@/components/pdf/MinimalInvoicePDF'
 import { CreativeInvoicePDF } from '@/components/pdf/CreativeInvoicePDF'
 import { ElegantInvoicePDF } from '@/components/pdf/ElegantInvoicePDF'
 import { BoldInvoicePDF } from '@/components/pdf/BoldInvoicePDF'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, MoreVertical } from 'lucide-react'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
 export function InvoiceEditor() {
     const { id } = useParams()
@@ -107,9 +108,23 @@ export function InvoiceEditor() {
                     <h1 className="text-xl font-bold">{id ? 'Edit Invoice' : 'New Invoice'}</h1>
                 </div>
                 <div className="flex gap-2">
-                    <Button variant="outline" onClick={() => handleSave('Draft')}>Save Draft</Button>
-                    <Button variant="outline" onClick={() => handleSave('Pending')}>Save as Pending</Button>
-                    <Button onClick={() => handleSave('Paid')}>Save Completed</Button>
+                    <div className="hidden md:flex gap-2">
+                        <Button variant="outline" onClick={() => handleSave('Draft')}>Save Draft</Button>
+                        <Button variant="outline" onClick={() => handleSave('Pending')}>Save as Pending</Button>
+                        <Button onClick={() => handleSave('Paid')}>Save Completed</Button>
+                    </div>
+                    <div className="md:hidden">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" size="icon"><MoreVertical className="w-5 h-5" /></Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                <DropdownMenuItem onClick={() => handleSave('Draft')}>Save Draft</DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleSave('Pending')}>Save as Pending</DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleSave('Paid')}>Save Completed</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
                     <PDFDownloadLink
                         document={
                             invoiceContext.template === 'elegant'

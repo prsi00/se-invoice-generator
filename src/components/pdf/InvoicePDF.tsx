@@ -102,8 +102,8 @@ export function InvoicePDF({ invoice, firm }: { invoice: Invoice, firm?: Firm })
                         <View style={styles.bankBox}>
                             <Text style={styles.heading}>Bank Details & Terms</Text>
                             {firm.bankDetails ? <Text style={styles.normText}>{firm.bankDetails}</Text> : <Text style={styles.normText}>N/A</Text>}
-                            {firm.upiId && <Text style={styles.normText}>UPI: {firm.upiId}</Text>}
-                            <Text style={{ marginTop: 15, fontStyle: 'italic', color: '#555', fontSize: 8 }}>This is a computer-generated document requiring no signature.</Text>
+                            {firm.payeeId && <Text style={styles.normText}>Payee: {firm.payeeId}</Text>}
+                            <Text style={{ marginTop: 15, fontStyle: 'italic', color: '#555', fontSize: 10 }}>Thank You</Text>
                         </View>
                         <View style={styles.totBox}>
                             <View style={styles.totRow}>

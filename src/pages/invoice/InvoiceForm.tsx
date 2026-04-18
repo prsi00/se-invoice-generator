@@ -1,4 +1,4 @@
-import { Plus, Trash2, Search } from 'lucide-react'
+import { Plus, Trash2 } from 'lucide-react'
 import { useStore } from '@/store/useStore'
 import type { Invoice, InvoiceItem } from '@/store/useStore'
 import { Button } from '@/components/ui/button'
@@ -223,15 +223,15 @@ export function InvoiceForm({ invoice, setInvoice }: InvoiceFormProps) {
                                 </div>
                                 <div className="col-span-6 md:col-span-1 space-y-2">
                                     <Label className="text-xs">Qty</Label>
-                                    <Input type="number" min={1} value={item.qty || 0} onChange={e => updateItem(idx, 'qty', Number(e.target.value))} />
+                                    <Input type="number" min={1} value={item.qty === 0 ? '' : item.qty} onChange={e => updateItem(idx, 'qty', Number(e.target.value))} />
                                 </div>
                                 <div className="col-span-4 md:col-span-2 space-y-2">
                                     <Label className="text-xs">Rate (₹)</Label>
-                                    <Input type="number" value={item.rate || 0} onChange={e => updateItem(idx, 'rate', Number(e.target.value))} />
+                                    <Input type="number" value={item.rate === 0 ? '' : item.rate} onChange={e => updateItem(idx, 'rate', Number(e.target.value))} />
                                 </div>
                                 <div className="col-span-4 md:col-span-1 space-y-2">
                                     <Label className="text-xs">Tax %</Label>
-                                    <Input type="number" max={100} value={item.taxPercent || 0} onChange={e => updateItem(idx, 'taxPercent', Number(e.target.value))} />
+                                    <Input type="number" max={100} value={item.taxPercent === 0 ? '' : item.taxPercent} onChange={e => updateItem(idx, 'taxPercent', Number(e.target.value))} />
                                 </div>
                                 <div className="col-span-4 md:col-span-2 space-y-2">
                                     <Label className="text-xs">Total (₹)</Label>
